@@ -1,15 +1,15 @@
 import "../styles/main.scss"
 
 // DEFININING WORD LIST FOR WORDSEARCH
-const wordList: string = ["bauble", "christmas", "cracker", "elf", "present", 
-"santa", "reindeer", "snow", "tinsel", "carols"];
+const wordList: string = ["BAUBLE", "CHRISTMAS", "CRACKER", "ELF", "PRESENT", 
+"SANTA", "REINDEER", "SNOW", "TINSEL", "CAROLS"];
 
 // FIGURING OUT HOW MANY RANDOM LETTERS I NEED
 const totalListCharacters: number = wordList.join("").length;
 console.log(totalListCharacters)
 
 // GENERATING THE RANDOM LETTERS
-const characters = "abcdefghijklmnopqrstuvwxyz";
+const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 const generateRandomString = (length:number) => {
   let result = "";
