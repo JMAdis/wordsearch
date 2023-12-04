@@ -1,7 +1,15 @@
 import "../styles/main.scss"
 
+// QUERY SELECTOR FOR WORDSEARCH GRID
+const wordsearchGrid = document.querySelector<HTMLElement>("#wordsearch-grid")
+
+// ELEMENT VALIDATION
+if(!wordsearchGrid){
+  throw new Error("Issue with the query selector")
+}
+
 // DEFININING WORD LIST FOR WORDSEARCH
-const wordsToFindList: string = ["BAUBLE", "CHRISTMAS", "CRACKER", "ELF", "PRESENT", 
+const wordsToFindList: string[] = ["BAUBLE", "CHRISTMAS", "CRACKER", "ELF", "PRESENT", 
 "SANTA", "REINDEER", "SNOW", "TINSEL", "CAROLS"];
 
 // FIGURING OUT HOW MANY RANDOM LETTERS I NEED
@@ -22,4 +30,5 @@ const generateRandomString = (length:number) => {
 
 console.log(generateRandomString(83));
 
+// 
 
