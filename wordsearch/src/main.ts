@@ -1,11 +1,11 @@
 import "../styles/main.scss"
 
 // DEFININING WORD LIST FOR WORDSEARCH
-const wordList: string = ["BAUBLE", "CHRISTMAS", "CRACKER", "ELF", "PRESENT", 
+const wordsToFindList: string = ["BAUBLE", "CHRISTMAS", "CRACKER", "ELF", "PRESENT", 
 "SANTA", "REINDEER", "SNOW", "TINSEL", "CAROLS"];
 
 // FIGURING OUT HOW MANY RANDOM LETTERS I NEED
-const totalListCharacters: number = wordList.join("").length;
+const totalListCharacters: number = wordsToFindList.join("").length;
 console.log(totalListCharacters)
 
 // GENERATING THE RANDOM LETTERS
