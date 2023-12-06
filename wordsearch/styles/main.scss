@@ -2,8 +2,13 @@ h1{
     color: red;
 }
 
-#wordsearch-grid{
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
+.wordsearch-grid{
+    background-color: orange;
+    
+
+    &__cell{
+        border: 1px purple;
+        height: 2rem;
+        width: 2rem;
+    }
 }
