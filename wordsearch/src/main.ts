@@ -1,11 +1,16 @@
 import "../styles/main.scss"
 
 // QUERY SELECTOR FOR WORDSEARCH GRID
-const wordsearchGrid = document.querySelector<HTMLElement>("#wordsearch-grid") ?? document.createElement("div")
+const wordsearchGrid = document.querySelector<HTMLTableElement>("#wordsearch-grid") ?? document.createElement("table")
+const wordsearchCell = document.querySelectorAll<HTMLTableCellElement>(".wordsearch-grid__cell")
 
 // ELEMENT VALIDATION
 if(!wordsearchGrid){
   throw new Error("Issue with the query selector")
+}
+
+if(wordsearchCell.length === 0){
+  throw new Error("Issue with the query selector all")
 }
 
 // DEFININING WORD LIST FOR WORDSEARCH
@@ -13,9 +18,9 @@ const listOfWordsToFind: string[] = ["BAUBLE", "CHRISTMAS", "CRACKER", "ELF", "P
 "SANTA", "REINDEER", "SNOW", "TINSEL", "CAROLS"];
 
 //BREAKING THE ARRAY INTO NESTED ARRAYS
-const listOfLetters: string[][] = listOfWordsToFind.map(word => word.split(""));
+//const listOfLetters: string[][] = listOfWordsToFind.map(word => word.split(""));
 
-console.log(listOfLetters[1])
+//console.log(listOfLetters[1])
 
 // FIGURING OUT HOW MANY RANDOM LETTERS I NEED
 const totalListCharacters: number = listOfWordsToFind.join("").length;
@@ -35,6 +40,17 @@ const generateRandomString = (length:number) => {
 
 console.log(generateRandomString(83));
 
+const fillWordsearch = () => {
+  wordsearchCell.forEach(cell => {
+    if (!cell.innerText.trim()) {
+      cell.innerText = generateRandomString(1);
+    }
+  });
+};
+
+document.addEventListener("DOMContentLoaded", fillWordsearch);
+
+/*
 // DIMENSIONS OF THE WORDSEARCH
 const rows = 12
 const columns = 12
