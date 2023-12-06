@@ -3,13 +3,15 @@ import "../styles/main.scss"
 // QUERY SELECTOR FOR WORDSEARCH GRID
 const wordsearchGrid = document.querySelector<HTMLTableElement>("#wordsearch-grid") ?? document.createElement("table")
 const wordsearchCell = document.querySelectorAll<HTMLTableCellElement>(".wordsearch-grid__cell")
+const wordsearchList = document.querySelector<HTMLUListElement>(".wordsearch-list")
+const wordsearchListItem = document.querySelectorAll<HTMLLIElement>(".wordsearch-list__item")
 
 // ELEMENT VALIDATION
-if(!wordsearchGrid){
+if(!wordsearchGrid || !wordsearchList){
   throw new Error("Issue with the query selector")
 }
 
-if(wordsearchCell.length === 0){
+if(wordsearchCell.length === 0 || wordsearchListItem.length === 0){
   throw new Error("Issue with the query selector all")
 }
 
@@ -38,8 +40,23 @@ const generateRandomString = (length:number) => {
   return result;
 }
 
-console.log(generateRandomString(83));
+const changeColorOfWord = (word: string) =>{
+  wordsearchCell.forEach(cell =>{
+    const cellWord = cell.innerText.trim();
+    if (cellWord === word) {
+      cell.style.color = "green"
+    }
+  });
+};
 
+const addStrikethrough = (word: string) =>{
+  const listItem = Array.from(wordsearchListItem).find(li => li.dataset.word === word);
+  if (listItem) {
+    listItem.style.textDecoration = "line-through"
+  }
+}
+
+// FILLING THE WORDSEARCH 
 const fillWordsearch = () => {
   wordsearchCell.forEach(cell => {
     if (!cell.innerText.trim()) {
@@ -51,6 +68,20 @@ const fillWordsearch = () => {
 document.addEventListener("DOMContentLoaded", fillWordsearch);
 
 /*
+
+else {
+      const word = cell.innerText.trim();
+      if (listOfWordsToFind.includes(word)){
+        cell.style.color = "green";
+        const listItem = Array.from(wordsearchListItem).find(li => li.dataset.word === word);
+        if (listItem){
+          listItem.style.textDecoration = "line-through";
+        }
+      }
+    }
+
+
+
 // DIMENSIONS OF THE WORDSEARCH
 const rows = 12
 const columns = 12
