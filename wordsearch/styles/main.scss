@@ -3,12 +3,12 @@ h1{
 }
 
 .wordsearch-grid{
-    background-color: orange;
+    border-collapse: collapse;
     
-
     &__cell{
-        border: 1px purple;
+        border: solid 1px purple;
         height: 2rem;
         width: 2rem;
+        text-align: center;
     }
 }
